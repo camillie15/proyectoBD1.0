@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="containerChangeable">
+        <div>
+            <h2>Tus eventos</h2>
+        </div>
+        <div class="containerWithoutBorder">
+            <label>Busqueda de eventos: </label>
+            <input id="codEventBusqueda" value="Codigo del evento">
+        </div>
+        <div class="containerWithoutBorder">
+            <label id="calendar"class="textBox">Cualquier fecha</label>
+            <label id="category" class="textBox">Categoria</label>
+            <label id="any">--------------------------------------------</label>
+            <label id="any">--------------------------------------------</label>
+            <label id="any">--------------------------------------------</label>
+            <label id="any">--------------------------------------------</label>
+            <label id="any">--------------------------------------------</label>
+            <label id="any">--------------------------------------------</label>
+        </div>
+        <div class="containerWithoutBorder">
+            <div id="containerEvent" class="containerColumn containerBorder">
+                <img class="app-icon" src=" {{ url_for('static', filename='img/imagen.png') }} " height="150">
+                <label><h4>DAY, DD/MM/AAAA</h4></label>
+                <label><h4>Modalidad </h4></label>
+                <label><h4>Descripcion</h4></label>
+                <label id="eventName"><h3>Nombre del evento</h3></label>
+                <div id="interesting" class="containerTextButton containerBorder1">
+                    <img class="app-icon marginImg" src=" {{ url_for('static', filename='img/star.png') }} " height="25">
+                    <label id="interes" type="text" class="textBox">Me interesa</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="92">
+
+        </div>
+    </div>
+        
+{% endblock %}
