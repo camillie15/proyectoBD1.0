@@ -1,0 +1,219 @@
+.containerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 5x;
+    border: 1px solid #ccc;
+}
+.containerBorder {
+    border-radius: 10px;
+}
+.containerColumn {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 5x;
+    border: 1px solid #ccc;
+}
+.containerModal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 5x;
+    border: 1px solid #ccc;
+    background-color: #ACACAC;
+}
+.containerWithoutBorder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 5px;
+}
+.containerLeft {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 2px 30px;             
+}
+.containerBackChangeable{
+    width: 100%;
+    height: 100%;
+    background-color: #e2e0e0;
+}
+.containerChangeable{
+    display: flex;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 5px;
+    flex-direction: column;
+}
+.containerTextBox{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.containerCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.textBox {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+.btn{
+    background-color: #79BAC1;
+    margin-bottom: 10px; 
+    margin-top: 20px;
+    padding: 5px 20px;        
+}
+.containerCenter input{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+}
+.left,
+.right {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+.center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+.leftModal,
+.rightModal {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.containerTextButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+    height: 18px;
+}
+.containerBorder1{
+    border: 1px solid #ccc;
+}
+.left h2 {
+    margin-left: 10px;
+}
+.center button{
+    margin-right: 10px;
+}
+.center h2 {
+    margin: 10px;
+}
+.marginImg{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.containerWithoutBorder div{
+    margin-right: 5px;
+}
+h1, h2, h3, h4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.textBox:focus {
+    border-color: #0e1011; 
+}
+.opacity {
+    opacity: 0.6; 
+}
+#modalCreate::backdrop{
+    background-color: rgba(0, 0, 0, .55);
+}
+.containerWithoutBorder input{
+    margin-right: 5px;
+}
+.containerCenter label, .containerTextButton label, .containerTotal label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.containerWithoutBorder button, .containerChangeable div{
+    margin-left: 20px;
+}
+.containerBorder label h4, .containerColumn label h4{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 2px;
+}
+#containerEvent{
+    margin: 20px;
+    padding: 25px;
+}
+#date{
+    margin-top: 5px;
+}
+.containerEvent label, .containerEvent div, .containerEvent img{
+    padding: 5px;
+    margin: 5px;
+}
+#aditionals, #invitados, #organizadores, #home, #event{
+    border: none;
+}
+#invitados, #organizadores, #interes{
+    width: 100%;
+    border: none;
+}
+.containerTotal{
+    width: 100%;
+}
+#events, #notifications, #sociak{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+}
+#busq{
+    margin-bottom: 20px;
+}
+#any{
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    color: white;
+}
+.containerWithoutBorder label{
+    margin-left: 10px;
+}
+#category, #calendar{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+#interes{
+    margin-left: 0px;
+}
+#interesting{
+    background-color: #e2dbdb;
+    margin-left: 5px;
+}
+#eventName{
+    margin-left: 5px;
+}
+#date1, #time1, #date2, #time2{
+    border: none;
+}
