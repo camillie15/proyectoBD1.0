@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>
+        if (top !== window) {
+            top.location.href = window.location.href;
+        }
+        if (window.location.hash) {
+            window.location.href = window.location.href.replace(window.location.hash, '');
+        }
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prueba BD</title>  
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/main.css') }} ">
+</head>
+<body>
+    <div class="containerRow" >
+        <div class="left">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/logo.png') }} " height="45">
+            <h2>eventiia</h2>
+        </div>
+        <div class="center">
+            <label id="home" type="text" class="textBox"><h2>Inicio</h2></label>
+            <label id="event" type="text" class="textBox"><h2>Eventos</h2></label>
+        </div>
+        <div class="rightModal">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/user.png') }} " height="25">
+        </div>
+    </div>
+    <div class="containerRow">
+        <div class="containerLeft">
+            <h3 id="date" class="containerCenter">DD/MM/AAAA</h3>
+            <input id="busq" type="text" id="texto" name="texto" class="containerCenter">
+            <div class="left">
+                <div id="events" class="containerTextButton">
+                    <img class="app-icon" src=" {{ url_for('static', filename='img/user.png') }} " height="25">
+                    <label onclick="window.location.href='{{ url_for('tusEventosPage') }}';"><h4>&nbsp;&nbsp;Tus eventos</h4></label>
+                </div>
+            </div>
+            <div class="left">
+                <div id="notifications" class="containerTextButton">
+                    <img class="app-icon" src=" {{ url_for('static', filename='img/not.png') }} " height="25">
+                <label><h4>&nbsp;&nbsp;Notificaciones</h4></label>
+                </div>
+            </div>
+            <div class="left">
+                <div id="social" class="containerTextButton">
+                    <img class="app-icon" src=" {{ url_for('static', filename='img/redes.png') }} " height="25">
+                <label><h4>&nbsp;&nbsp;Redes sociales</h4></label>
+                </div>
+            </div>
+            <div class="containerCenter">
+                <button id="btnModalCreate" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" name="btnCrear" class="btn">Crear Nuevo Evento</button>
+                <dialog id="modalCreate">
+                    <div class="containerColumn">
+                        <div class="containerModal">
+                            <div class="leftModal">
+                            </div>
+                            <div class="center">
+                                <h2>Crear Evento</h2>
+                            </div>
+                            <div class="rightModal">
+                                
+                                <img id="closeModal" class="app-icon" src=" {{ url_for('static', filename='img/close.png') }} " height="25">
+                            </div>
+                        </div>
+                        <div class="containerRow">
+                            <div class="left">
+                                <div>
+                                    <img class="app-icon" src=" {{ url_for('static', filename='img/imagen.png') }} " height="200">
+                                    <div class="containerWithoutBorder">
+                                        <div class="left">
+                                        </div>
+                                        <div class="center">
+                                            <button>Elegir un gif</button>
+                                            <button>Subir</button>
+                                        </div>
+                                        <div class="right">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="containerTextBox">
+                                <div class="containerWithoutBorder">
+                                    <input id="idEvento" type="text" class="textBox" placeholder="Codigo">
+                                    <input id="nameEvento" type="text" class="textBox" placeholder="Nombre del evento">
+                                </div>
+                                <div class="containerWithoutBorder">
+                                    <input id="idEvento" type="text" class="textBox" placeholder="Presencial o virtual">
+                                </div>
+                                <div class="containerWithoutBorder">
+                                    <div class="containerRow containerBorder">
+                                        <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/calendar.png') }} " height="35">
+                                        <div class="containerTextBox">
+                                            <label class="opacity">Fecha de inicio:</label>
+                                            <input id="date1" type="text" placeholder="DD/MM/AAAA">
+                                        </div>
+                                    </div>
+                                    <div class="containerRow containerBorder">
+                                        <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/clock.png') }} " height="35">
+                                        <div class="containerTextBox">
+                                            <label class="opacity">Hora de inicio:</label>
+                                            <input id="time1" type="text" placeholder="HH:MM">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="containerWithoutBorder">
+                                    <div class="containerRow containerBorder">
+                                        <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/calendar.png') }} " height="35">
+                                        <div class="containerTextBox">
+                                            <label class="opacity">Fecha de Fin:</label>
+                                            <input id="date2" type="text" placeholder="DD/MM/AAAA">
+                                        </div>
+                                    </div>
+                                    <div class="containerRow containerBorder">
+                                        <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/clock.png') }} " height="35">
+                                        <div class="containerTextBox">
+                                            <label class="opacity">Hora de Fin:</label>
+                                            <input id="time2" type="text" placeholder="HH:MM">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerTextBox">
+                            <div class="containerWithoutBorder">
+                                <input id="descriptionEvento" type="text" class="textBox" placeholder="Descripcion">
+                            </div>
+                            <div class="containerWithoutBorder">
+                                <input id="categoryEvento" type="text" class="textBox" placeholder="Categoria">
+                                <input id="clasificationEvento" type="text" class="textBox" placeholder="Clasificacion privada o publica">
+                                <div class="containerTextButton containerBorder1">
+                                    <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/add.png') }} " height="25">
+                                    <label id="aditionals" type="text" class="textBox opacity">Adicionales</label>
+                                </div>
+                            </div>
+                            <div class="containerWithoutBorder">
+                                <div></div>
+                                <div class="containerTextButton containerTotal containerBorder1">
+                                    <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/plus.png') }} " height="25">
+                                    <label id="organizadores" type="text" class="textBox opacity">Organizadores</label>
+                                </div>
+                                <div class="containerTextButton containerTotal containerBorder1">
+                                    <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/inv.png') }} " height="25">
+                                    <label id="invitados" type="text" class="textBox opacity">Invitados</label>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containerRow" >
+                        <div class="left">
+                        </div>
+                        <div class="center">
+                            <button id="btnCreate" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" name="btnCrear" class="btn">CREAR EVENTO</button>
+                            <button id="btnCloseCreate" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" name="btnCrear" class="btn">CANCELAR</button>
+                        </div>
+                        <div class="right">
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+            <div>
+                <h3>Categoria</h3>
+            </div>
+            <div class="left" >
+                <img class="app-icon" src=" {{ url_for('static', filename='img/arte.png') }} " height="25">
+                <h4>&nbsp;&nbsp;Arte</h4>
+            </div>
+            <div class="left" >
+                <img class="app-icon" src=" {{ url_for('static', filename='img/comida.png') }} " height="25">
+                <h4>&nbsp;&nbsp;Comidas</h4>
+            </div>
+            <div class="left" >
+                <img class="app-icon" src=" {{ url_for('static', filename='img/juego.png') }} " height="25">
+                <h4>&nbsp;&nbsp;Videojuegos</h4>
+            </div>
+            <div class="left" >
+                <img class="app-icon" src=" {{ url_for('static', filename='img/beb.png') }} " height="25">
+                <h4>&nbsp;&nbsp;Bebidas</h4>
+            </div>
+            <div class="left" >
+                <img class="app-icon" src=" {{ url_for('static', filename='img/depor.png') }} " height="25">
+                <h4>&nbsp;&nbsp;Deportes</h4>
+            </div>
+        </div>
+        <div class="containerBackChangeable">
+            {% block content %}
+                
+            {% endblock %}
+        </div>
+    </div>
+    <script>
+        const btnModalCreate = document.querySelector("#btnModalCreate");
+        const modalCreate = document.querySelector("#modalCreate");
+        const closeModal = document.querySelector("#closeModal");
+
+        btnModalCreate.addEventListener("click", () => {
+            modalCreate.showModal();
+        });
+
+        closeModal.addEventListener("click", () => {
+            modalCreate.close();
+        });
+        btnCreate.addEventListener("click", () => {
+            modalCreate.close();
+        });
+        btnCloseCreate.addEventListener("click", () => {
+            modalCreate.close();
+        });
+    </script>
+</body>
+</html>
