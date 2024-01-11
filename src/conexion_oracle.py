@@ -15,5 +15,3 @@ try:
         print(row)
 except Exception as ex:
     print(ex)
-finally: connection.close()
-print("Conexion finalizada")
