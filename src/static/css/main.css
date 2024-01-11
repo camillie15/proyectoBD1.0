@@ -164,7 +164,7 @@ h1, h2, h3, h4{
     margin: 20px;
     padding: 25px;
 }
-#date{
+#datePrincipal{
     margin-top: 5px;
 }
 .containerEvent label, .containerEvent div, .containerEvent img{
@@ -202,7 +202,6 @@ h1, h2, h3, h4{
 }
 #category, #calendar{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
 }
 #interes{
     margin-left: 0px;
@@ -214,6 +213,10 @@ h1, h2, h3, h4{
 #eventName{
     margin-left: 5px;
 }
-#date1, #time1, #date2, #time2{
+#date1, #time1, #date2, #time2, #cantidadInvitados, #organizadoresEven{
     border: none;
+}
+
+#containerForm{
+    background-color: white;
 }
