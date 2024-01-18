@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>
+        if (top !== window) {
+            top.location.href = window.location.href;
+        }
+        if (window.location.hash) {
+            window.location.href = window.location.href.replace(window.location.hash, '');
+        }
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prueba BD</title>  
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/main.css') }} ">
+</head>
+<body>
+    <div class="containerRow" >
+        <div class="left">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/logo.png') }} " height="45">
+            <label><h2 onclick="window.location.href='{{ url_for('home') }}';">eventiia</h2></label>
+        </div>
+        <div class="center">
+            <label id="home" type="text" class="textBox"><h2>Inicio</h2></label>
+            <label id="event" type="text" class="textBox"><h2>Eventos</h2></label>
+            <label id="any">----------------</label>
+        </div>
+        <div class="rightModal">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/user.png') }} " height="25">
+        </div>
+    </div>
+    <div class="containerForm" style="background-color: white;">
+        <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="40">
+    </div>
+    <div id="containerForm" class="containerCenter">
+        <form action="/aditionals" method="POST">
+            <div class="containerColumn">
+                <div class="containerModal">
+                    <div class="leftModal">
+                    </div>
+                    <div class="center">
+                        <h2>Servicios Adicionales</h2>
+                    </div>
+                    <div class="rightModal">
+                        <img id="closeModal" class="app-icon" src=" {{ url_for('static', filename='img/close.png') }} " height="25" onclick="window.location.href='{{ url_for('home') }}';">
+                    </div>
+                </div>
+                <div class="containerColumn">
+                    <div class="containerTextBox">
+                        <div class="containerWithoutBorder">
+                            <input id="codigoServicio" name="codigoServicio" type="text" class="textBox" placeholder="Codigo servicio adicional">
+                            <input id="horaServicio" name="horaServicio" type="text" class="textBox" placeholder="Horas de servicio">
+
+                        </div>
+                    </div>
+                    <div class="containerRow containerWithoutBorder pagoo">
+                        <div class="containerRow">
+                            <label>Materiales: </label>
+                        </div>
+                    </div>
+                    <div class="containerPay containerWithoutBorder">
+                        <div class="containerColumn">
+                            <div class="containerRow">
+                                <div class="containerColumn">
+                                    <div class="containerColumn">
+                                        <label id="materiales">Sillas</label>
+                                        <label class="checkbox-label" for="checkboxCard">
+                                            <img src=" {{ url_for('static', filename='img/chair.png') }} ">
+                                        </label>
+                                        <input class="inputMateriales" type="number" id="cantSillas" name="cantSillas">
+                                    </div>
+                                </div>
+                                <div class="containerColumn">
+                                    <div class="containerColumn">
+                                        <label id="materiales">Mesas</label>
+                                        <label class="checkbox-label" for="checkboxCard">
+                                            <img src=" {{ url_for('static', filename='img/table.png') }} ">
+                                        </label>
+                                        <input class="inputMateriales" type="number" id="cantMesas" name="cantMesas">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="containerRow">
+                                <div class="containerColumn">
+                                    <div class="containerColumn">
+                                        <label id="materiales">Carpas</label>
+                                        <label class="checkbox-label" for="checkboxCard">
+                                            <img src=" {{ url_for('static', filename='img/carpa.png') }} ">
+                                        </label>
+                                        <input class="inputMateriales" type="number" id="cantCarpas" name="cantCarpas">
+                                    </div>
+                                </div>
+                                <div class="containerColumn">
+                                    <div class="containerColumn">
+                                        <label id="materiales">Parlantes</label>
+                                        <label class="checkbox-label" for="checkboxCard">
+                                            <img src=" {{ url_for('static', filename='img/parlante.png') }} ">
+                                        </label>
+                                        <input class="inputMateriales" type="number" id="cantParlantes" name="cantParlantes">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="containerRow" >
+                    <div class="left">
+                    </div>
+                    <div class="center">
+                        <button id="btnAdd" type="submit" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" name="btnAdd" class="btn">AGREGAR MATERIALES</button>
+                    </div>
+                    <div class="right">
+                    </div>
+                </div>
+        </form>
+    </div>
+    <div class="containerForm" style="background-color: white;">        
+        <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="20">
+    </div>
+</body>
+</html>

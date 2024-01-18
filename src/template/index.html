@@ -5,32 +5,27 @@
         <div>
             <h2>Descubir eventos</h2>
         </div>
-        <div class="containerWithoutBorder">
-            <label id="calendar"class="textBox">Cualquier fecha</label>
-            <label id="category" class="textBox">Categoria</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
+        <div class="containerWithoutBorder containerTotal">
+            <label id="calendar"class="textBox">
+                Busqueda por fechas
+                <input id="dateBusq" name="dateBusq" class="opacity" type="date" value="DD/MM/AAAA">
+            </label>
         </div>
         <div class="containerWithoutBorder">
-            <div id="containerEvent" class="containerColumn containerBorder">
-                <img class="app-icon" src=" {{ url_for('static', filename='img/imagen.png') }} " height="150">
-                <label><h4>DAY, DD/MM/AAAA</h4></label>
-                <label><h4>Modalidad </h4></label>
-                <label><h4>Descripcion</h4></label>
-                <label id="eventName"><h3>Nombre del evento</h3></label>
-                <div id="interesting" class="containerTextButton containerBorder1">
+            <div id="containerEvent" class="containerColumn containerBorder containerTotal">
+                <img class="app-icon centered" src=" {{ url_for('static', filename='img/imagen.png') }} " height="200">
+                <label><h4>2024-02-03</h4></label>
+                <label><h4>Virtual </h4></label>
+                <label class="wrap-label"><h4>Capacitacion de herramientas tecnologicas implementadas en el sistema educativo</h4></label>
+                <label id="eventName"><h3>Capacitacion Digital</h3></label>
+                <div id="interesting" class="containerTextButton containerBorder1 centered">
                     <img class="app-icon marginImg" src=" {{ url_for('static', filename='img/star.png') }} " height="25">
-                    <label id="interes" type="text" class="textBox">Me interesa</label>
+                    <label id="interes" type="text" class="textBox centered">Me interesa</label>
                 </div>
             </div>
         </div>
         <div>
-            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="92">
-
+            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="5">
         </div>
     </div>
         

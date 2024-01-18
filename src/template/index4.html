@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>
+        if (top !== window) {
+            top.location.href = window.location.href;
+        }
+        if (window.location.hash) {
+            window.location.href = window.location.href.replace(window.location.hash, '');
+        }
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prueba BD</title>  
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/main.css') }} ">
+</head>
+<body>
+    <div class="containerRow" >
+        <div class="left">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/logo.png') }} " height="45">
+            <label><h2 onclick="window.location.href='{{ url_for('home') }}';">eventiia</h2></label>
+        </div>
+        <div class="center">
+            <label id="home" type="text" class="textBox"><h2>Inicio</h2></label>
+            <label id="event" type="text" class="textBox"><h2>Eventos</h2></label>
+            <label id="any">----------------</label>
+        </div>
+        <div class="rightModal">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/user.png') }} " height="25">
+        </div>
+    </div>
+        <div class="containerForm" style="background-color: white;">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="80">
+        </div>
+        <div id="containerForm" class="containerCenter">
+            <form action="/medioPago" method="POST">
+                <div class="containerColumn">
+                    <div class="containerModal">
+                        <div class="leftModal">
+                        </div>
+                        <div class="center">
+                            <h2>Pago</h2>
+                        </div>
+                        <div class="rightModal">
+                            <img id="closeModal" class="app-icon" src=" {{ url_for('static', filename='img/close.png') }} " height="25" onclick="window.location.href='{{ url_for('home') }}';">
+                        </div>
+                    </div>
+                    <div class="containerColumn">
+                        <div class="containerTextBox">
+                            <div class="containerWithoutBorder">
+                                <input id="codigoPago" name="codigoPago" type="text" class="textBox" placeholder="Codigo">
+                                <div class="containerWithoutBorder">
+                                    <label>Fecha:</label>
+                                    <input id="datePago" class="opacity" name="datePago" type="date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerRow containerWithoutBorder pagoo">
+                            <input id="descripcionPago" name="descripcionPago" type="text" class="textBox" placeholder="Descripcion">
+                            <div class="containerRow">
+                                <label>Monto: </label>
+                                <input id="montoPago" name="montoPago" type="text" placeholder="Cantidad a pagar">
+                            </div>
+                        </div>
+                        <div class="containerRow containerWithoutBorder pagoo">
+                            <div class="containerRow">
+                                <label>Medio de pago: </label>
+                            </div>
+                        </div>
+                        <div class="containerPay containerWithoutBorder">
+                            <div class="containerRow">
+                                <div class="containerColumn">
+                                    <label id="materiales">Tarjeta Credito/Debito</label>
+                                    <label class="checkbox-label" for="checkboxCard">
+                                        <img src=" {{ url_for('static', filename='img/card.png') }} ">
+                                    </label>
+                                    <input type="checkbox" id="checkboxCard" name="checkboxCard" value="Tarjeta">
+                                </div>
+                                <div class="containerColumn">
+                                    <label id="materiales">Transferencia</label>
+                                    <label class="checkbox-label" for="checkboxBank">
+                                        <img src=" {{ url_for('static', filename='img/bank.png') }} ">
+                                    </label>
+                                    <input type="checkbox" id="checkboxBank" name="checkboxBank" value="Banco">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containerRow" >
+                        <div class="left">
+                        </div>
+                        <div class="center">
+                            <button id="btnPay" type="submit" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" name="btnPay" class="btn">PAGAR</button>
+                        </div>
+                        <div class="right">
+                        </div>
+                    </div>
+            </form>
+        </div>
+        <div class="containerForm" style="background-color: white;">        
+            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="80">
+        </div>
+    </div>
+</body>
+</html>

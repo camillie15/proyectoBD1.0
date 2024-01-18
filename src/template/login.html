@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/main.css') }} ">
+</head>
+<body>
+    <div class="containerForm" style="background-color: white;">
+        <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="60">
+    </div>
+\   <div class="containerAll">
+        <div class="containerForm" style="background-color: white;">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " width="800">
+        </div>
+        <div id="centerLogin" class="containerRow">
+            <div class="containerLogin">
+                <img class="app-icon marginImg" src=" {{ url_for('static', filename='img/cal.png') }} " height="400">
+                <form action="/login" method="POST">
+                    <div class="containerColumn textNBorder">
+                        <div class="containerCenter">
+                                <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/logologin.png') }} " height="100">
+                        </div>
+                        <div class="containerText containerCenter">
+                            <div class="containerRow">
+                                <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/username.png') }} " height="20">
+                                <div class="containerTextBox textNBorder">
+                                    <input id="usuario" name="usuario" type="text" placeholder="Username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerText containerCenter">
+                            <div class="containerRow">
+                                <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/lock.png') }} " height="20">
+                                <div class="containerTextBox textNBorder">
+                                    <input id="contra" name="contra" type="password" placeholder="Contraseña">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="align-self: center;">
+                            <button id="btnLogin" type="submit" class="btnLogin" name="btnLogin">LOGIN</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+    
+</body>
+</html>

@@ -2,38 +2,43 @@
 
 {% block content %}
     <div class="containerChangeable">
-        <div>
-            <h2>Tus eventos</h2>
+        <div class="containerWithoutBorder">
+            <h2>Tus eventos</h2> 
+            <button id="btnDelete" type="submit" name="btnDelete" onclick=" window.location.href='{{ url_for('deleteEvent') }}';"> 
+                <img class="app-icon" src=" {{ url_for('static', filename='img/delete.png') }} " height="25">
+            </button>
+        </div>
+        <div class="containerWithoutBorder containerTotal">
+            <label id="calendar"class="textBox">
+                Busqueda por fechas
+                <input id="dateBusq" name="dateBusq" class="opacity" type="date" value="DD/MM/AAAA">
+            </label>
         </div>
         <div class="containerWithoutBorder">
-            <label>Busqueda de eventos: </label>
-            <input id="codEventBusqueda" value="Codigo del evento">
-        </div>
-        <div class="containerWithoutBorder">
-            <label id="calendar"class="textBox">Cualquier fecha</label>
-            <label id="category" class="textBox">Categoria</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-            <label id="any">--------------------------------------------</label>
-        </div>
-        <div class="containerWithoutBorder">
-            <div id="containerEvent" class="containerColumn containerBorder">
-                <img class="app-icon" src=" {{ url_for('static', filename='img/imagen.png') }} " height="150">
-                <label><h4>DAY, DD/MM/AAAA</h4></label>
-                <label><h4>Modalidad </h4></label>
-                <label><h4>Descripcion</h4></label>
-                <label id="eventName"><h3>Nombre del evento</h3></label>
-                <div id="interesting" class="containerTextButton containerBorder1">
-                    <img class="app-icon marginImg" src=" {{ url_for('static', filename='img/star.png') }} " height="25">
-                    <label id="interes" type="text" class="textBox">Me interesa</label>
+            {% for evento in eventos %}
+                <div id="containerEvent" class="containerColumn containerBorder">
+                    <img class="app-icon centered" src="{{ url_for('static', filename='img/imagen.png') }}" height="150" width="200">
+                    <label>
+                        <h4><time datetime="{{ evento[7].strftime('%Y-%m-%d') }}">{{ evento[7].strftime('%Y-%m-%d') }}</time></h4>
+                    </label>
+
+                    {% if evento[4] == 1 %}
+                        <label><h4>Presencial </h4></label> 
+                    {% else %}
+                        <label><h4>Virtual </h4></label>
+                    {% endif %}
+                    <label class="wrap-label"><h4>{{ evento[2] }}</h4></label>
+                    <label id="eventName"><h3>{{ evento[1] }}</h3></label>
+                    <div id="editing" class="containerTextButton containerBorder1 centered" onclick=" window.location.href='{{ url_for('editEvent', idEvento=evento[0]) }}';">
+
+                        <img class="app-icon marginImg" src="{{ url_for('static', filename='img/edit.png') }}" height="25">
+                        <label id="editarL" type="text" class="textBox">Editar</label>
+                    </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
         <div>
-            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="60">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="90">
         </div>
     </div>
         

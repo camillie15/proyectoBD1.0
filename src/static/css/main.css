@@ -160,9 +160,28 @@ h1, h2, h3, h4{
     margin-bottom: 1px;
     margin-left: 2px;
 }
-#containerEvent{
+.checkbox-label img {
+    width: 100px; /* Ajusta el ancho según tus necesidades */
+    height: 80px; /* Ajusta la altura según tus necesidades */
+    margin-right: 5px; /* Espaciado entre la imagen y el texto */
+    vertical-align: middle; /* Alinea la imagen verticalmente */
+}
+.inputMateriales{
+    margin-top: 10px;
+}
+#containerEvent {
+    width: 225px;
     margin: 20px;
-    padding: 25px;
+    margin-right: 5px;
+    padding: 15px;
+    display: flex;
+    align-items: start;
+}
+#containerEvent div, #containerEvent img {
+    margin-left: 10px;
+}
+#containerEvent div.centered, #containerEvent img.centered {
+    margin: auto; /* Esto centrará horizontalmente los elementos */
 }
 #datePrincipal{
     margin-top: 5px;
@@ -174,7 +193,7 @@ h1, h2, h3, h4{
 #aditionals, #invitados, #organizadores, #home, #event{
     border: none;
 }
-#invitados, #organizadores, #interes{
+#invitados, #organizadores, #interes, #editarL{
     width: 100%;
     border: none;
 }
@@ -200,23 +219,103 @@ h1, h2, h3, h4{
 .containerWithoutBorder label{
     margin-left: 10px;
 }
-#category, #calendar{
+#calendar{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
 }
 #interes{
     margin-left: 0px;
 }
-#interesting{
+#interesting, #editing{
     background-color: #e2dbdb;
     margin-left: 5px;
 }
 #eventName{
     margin-left: 5px;
 }
-#date1, #time1, #date2, #time2, #cantidadInvitados, #organizadoresEven{
+#date1, #time1, #date2, #time2, #cantidadInvitados, #organizadoresEven, #dateBusq{
     border: none;
 }
-
+#dateBusq{
+    margin-left: 15px;
+}
 #containerForm{
     background-color: white;
+}
+.pagoo{
+    border: none;
+    margin: 10px;
+}
+.pagoo label, .pagoo div label, .pagoo div{
+    border: none;
+}
+.pagoo input{
+    margin-left: 5px;
+}
+.pagoo div{
+    padding: 5px;
+}
+.containerPay{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 5x;
+}
+.containerPay div{
+    border: none;
+    padding: 5px;
+}
+#delete{
+    background-color: #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+#headerEvent{
+    justify-content: space-between;
+    padding: 5px;
+}
+#materiales{
+    font-size: 17px;
+    margin: 5px;
+}
+.textNBorder, .textNBorder input{
+    border: none;
+}
+.containerLogin{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+
+}
+.containerLogin div, .containerLogin img{
+    margin:  3px;
+}
+.containerText{
+    background-color: white;
+}
+.containerAll{
+    height: 600px;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#centerLogin{
+    height: 500px;
+    width: 1100px;
+    background-color: #BEE3FE; 
+    border: none;
+    padding: 5px;
+}
+.btnLog{
+    margin-bottom: 10px; 
+    margin-top: 20px;
+    padding: 5px 20px;   
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+    background-color: #e4e4e4;  
+    font-size: 16px;
 }

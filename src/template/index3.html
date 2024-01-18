@@ -34,16 +34,16 @@
         <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="80">
     </div>
     <div id="containerForm" class="containerCenter">
-        <form action="/createEvent" method="POST">
+        <form action="{{ url_for('editEvent', idEvento=evento[0]) }}" method="POST">
             <div class="containerColumn">
                 <div class="containerModal">
                     <div class="leftModal">
                     </div>
                     <div class="center">
-                        <h2>Crear Evento</h2>
+                        <h2>Editar Evento</h2>
                     </div>
                     <div class="rightModal">
-                        <img id="closeModal" class="app-icon" src=" {{ url_for('static', filename='img/close.png') }} " height="25" onclick="window.location.href='{{ url_for('home') }}';">
+                        <img id="closeModal" class="app-icon" src=" {{ url_for('static', filename='img/close.png') }} " height="25" onclick="window.location.href='{{ url_for('tusEventosPage') }}';">
                     </div>
                 </div>
                 <div class="containerRow">
@@ -54,25 +54,25 @@
                     </div>
                     <div class="containerTextBox">
                         <div class="containerWithoutBorder">
-                            <input id="idEvento" name="idEvento" type="text" class="textBox" placeholder="Codigo">
-                            <input id="nameEvento" name="nameEvento" type="text" class="textBox" placeholder="Nombre del evento">
+                            <input id="idEvento" name="idEvento" type="text" class="textBox" value="{{evento[0]}}" readonly>
+                            <input id="nameEvento" name="nameEvento" type="text" class="textBox" value="{{evento[1]}}">
                         </div>
                         <div class="containerWithoutBorder">
-                            <input id="ubicacionEvento" name="ubicacionEvento" type="text" class="textBox" placeholder="Ubicacion del evento">
+                            <input id="ubicacionEvento" name="ubicacionEvento" type="text" class="textBox" value="{{evento[5]}}">
                         </div>
                         <div class="containerWithoutBorder">
                             <div class="containerRow containerBorder">
                                 <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/calendar.png') }} " height="35">
                                 <div class="containerTextBox">
                                     <label class="opacity">Fecha de inicio:</label>
-                                    <input id="date1" name="date1" class="opacity" type="date" value="DD/MM/AAAA">
+                                    <input id="date1" name="date1" class="opacity" type="date" value="{{evento[7]}}">
                                 </div>
                             </div>
                             <div class="containerRow containerBorder">
                                 <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/clock.png') }} " height="35">
                                 <div class="containerTextBox">
                                     <label class="opacity">Hora de inicio:</label>
-                                    <input id="time1" name="time1" class="opacity" type="time" value="HH:MM">
+                                    <input id="time1" name="time1" class="opacity" type="time" value="{{evento[8]}}">
                                 </div>
                             </div>
                         </div>
@@ -81,14 +81,14 @@
                                 <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/calendar.png') }} " height="35">
                                 <div class="containerTextBox">
                                     <label class="opacity">Fecha de fin:</label>
-                                    <input id="date2" name="date2" class="opacity" type="date" value="DD/MM/AAAA">
+                                    <input id="date2" name="date2" class="opacity" type="date" value="{{evento[9]}}">
                                 </div>
                             </div>
                             <div class="containerRow containerBorder">
                                 <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/clock.png') }} " height="35">
                                 <div class="containerTextBox">
                                     <label class="opacity">ㅤHora de fin :</label>
-                                    <input id="time2" name="time2" class="opacity" type="time" value="HH:MM">
+                                    <input id="time2" name="time2" class="opacity" type="time" value="{{evento[10]}}">
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="containerTextBox">
                     <div class="containerWithoutBorder">
-                        <input id="descriptionEvento" name="descriptionEvento" type="text" class="textBox" placeholder="Descripcion">
+                        <input id="descriptionEvento" name="descriptionEvento" type="text" class="textBox" value="{{evento[2]}}">
                     </div>
                     <div class="containerWithoutBorder">
                         <div class="containerRow containerBorder">
@@ -143,7 +143,7 @@
                 <div class="left">
                 </div>
                 <div class="center">
-                    <button id="btnCreate" type="submit" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" name="btnCrear" class="btn">AGREGAR SERVICIOS ADICIONALES</button>
+                    <button id="btnGuardar" type="submit" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" name="btnGuardar" class="btn">GUARDAR CAMBIOS</button>
                 </div>
                 <div class="right">
                 </div>
@@ -152,7 +152,6 @@
     </div>
     <div class="containerForm" style="background-color: white;">        
         <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="80">
-    </div>
     </div>
 </body>
 </html>
