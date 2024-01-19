@@ -11,14 +11,14 @@
                 <input id="dateBusq" name="dateBusq" class="opacity" type="date" value="DD/MM/AAAA">
             </label>
         </div>
-        <div class="containerWithoutBorder">
-            <div id="containerEvent" class="containerColumn containerBorder containerTotal">
+        <div class="containerWithoutBord er">
+            <div id="containerEventPrin" class="containerColumn containerBorder containerTotal">
                 <img class="app-icon centered" src=" {{ url_for('static', filename='img/imagen.png') }} " height="200">
                 <label><h4>2024-02-03</h4></label>
                 <label><h4>Virtual </h4></label>
                 <label class="wrap-label"><h4>Capacitacion de herramientas tecnologicas implementadas en el sistema educativo</h4></label>
                 <label id="eventName"><h3>Capacitacion Digital</h3></label>
-                <div id="interesting" class="containerTextButton containerBorder1 centered">
+                <div id="interesting" style="margin-left: 30px; margin-right: 30px;" class="containerTextButton containerBorder1 centered" onclick=" window.location.href='{{ url_for('inscripcionEvent') }}';">
                     <img class="app-icon marginImg" src=" {{ url_for('static', filename='img/star.png') }} " height="25">
                     <label id="interes" type="text" class="textBox centered">Me interesa</label>
                 </div>

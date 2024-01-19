@@ -32,6 +32,19 @@
     flex-direction: row;
     margin: 5px;
 }
+.containerWithoutBorderEvents {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: start;
+    margin: 5px;
+}
+.containerWithoutBorderEventsDelete {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
+}
 .containerLeft {
     justify-content: space-between;
     align-items: center;
@@ -171,11 +184,19 @@ h1, h2, h3, h4{
 }
 #containerEvent {
     width: 225px;
+    height: 350px;
     margin: 20px;
     margin-right: 5px;
     padding: 15px;
     display: flex;
     align-items: start;
+}
+#containerEventPrin {
+    width: 225px;
+    margin: 20px;
+    margin-right: 5px;
+    padding: 15px;
+    display: flex;
 }
 #containerEvent div, #containerEvent img {
     margin-left: 10px;
@@ -317,5 +338,56 @@ h1, h2, h3, h4{
     padding: 5px 20px;   
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
     background-color: #e4e4e4;  
+}
+.labelLa{
+    width: 270px;
+}
+.labelId{
+    width: 150px;
+}
+#labels{
+    background-color: #e8e7e7;
+}
+#labelsEvent{
+    background-color: #f3efef;
+}
+#containerLabel, #labels{
+    margin-left: 0px ;
+    margin-right: 0px;
+}
+#inscripcion{
+    border: none;
+    margin: 10px;
+}
+#inscripcion label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+}
+.containerUser{
+    padding: 10px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.containerBtnUser{
+    align-self: center; 
+    margin-right: 800px;
+    align-content: center;
+}
+.NBorderUser{
+    border: none;
+    padding: 5px;
+}
+.btnUser{
+    padding: 10px;
+    justify-self: center;
+    font-size: medium;
     font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+#editBtn{
+    background-color: #B4B6EC;
+}
+#deleteBtn{
+    background-color: #d86262;
 }

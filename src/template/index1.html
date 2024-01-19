@@ -14,14 +14,13 @@
                 <input id="dateBusq" name="dateBusq" class="opacity" type="date" value="DD/MM/AAAA">
             </label>
         </div>
-        <div class="containerWithoutBorder">
+        <div class="containerWithoutBorderEvents" >
             {% for evento in eventos %}
                 <div id="containerEvent" class="containerColumn containerBorder">
                     <img class="app-icon centered" src="{{ url_for('static', filename='img/imagen.png') }}" height="150" width="200">
                     <label>
                         <h4><time datetime="{{ evento[7].strftime('%Y-%m-%d') }}">{{ evento[7].strftime('%Y-%m-%d') }}</time></h4>
                     </label>
-
                     {% if evento[4] == 1 %}
                         <label><h4>Presencial </h4></label> 
                     {% else %}
@@ -30,7 +29,6 @@
                     <label class="wrap-label"><h4>{{ evento[2] }}</h4></label>
                     <label id="eventName"><h3>{{ evento[1] }}</h3></label>
                     <div id="editing" class="containerTextButton containerBorder1 centered" onclick=" window.location.href='{{ url_for('editEvent', idEvento=evento[0]) }}';">
-
                         <img class="app-icon marginImg" src="{{ url_for('static', filename='img/edit.png') }}" height="25">
                         <label id="editarL" type="text" class="textBox">Editar</label>
                     </div>
@@ -38,7 +36,7 @@
             {% endfor %}
         </div>
         <div>
-            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="90">
+            <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="60">
         </div>
     </div>
         

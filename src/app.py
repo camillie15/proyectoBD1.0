@@ -2,12 +2,59 @@ from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for
 
 from conf import config
-from conexion_oracle import connection, cursor
+from conexion_oracle import connection
 
 app = Flask(__name__, static_folder='static', template_folder='template')
 evento_Id = None
+usuario_Nombre = None
+user_Id = None
 
-@app.route('/')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    global usuario_Nombre
+    if request.method == 'POST':
+        data = request.form
+        cursor11 = connection.cursor()
+        sql = "SELECT * FROM CAY_USUARIO"
+        cursor11.execute(sql)
+        users = cursor11.fetchall()
+        print(users)
+        for user in users:
+            print(user)
+            user = list(user)
+            if user[1] == data['usuario'] and user[3] == data['contra']:
+                cursor11.close()
+                usuario_Nombre = data['usuario']
+                return redirect (url_for('home'))
+        
+        cursor11.close()
+        return redirect (url_for('signup'))
+    return render_template('login.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        data = request.form
+        rol_id = 1
+        cursor12 = connection.cursor()
+        sql2 = """
+            INSERT INTO CAY_USUARIO(
+                CORREO, NOMBRE_USUARIO, CONTRASENIA, ID_ROL
+            ) VALUES(:correoU, :nombreU, :contraU, :idRol)
+        """
+        cursor12.execute(
+            sql2,
+            correoU = data['correo'],
+            nombreU = data['usuario'],
+            contraU = data['contra'],
+            idRol = rol_id
+            )
+        connection.commit()
+        cursor12.close()
+        return redirect(url_for('login'))
+    return render_template('signup.html')
+
+@app.route('/home')
 def home():
     return render_template('index.html')
 
@@ -149,14 +196,15 @@ def tusEventosPage():
     eventos = cursor4.fetchall()
     cursor4.close()
     return render_template('index1.html', eventos = eventos)
-
+    
 @app.route('/medioPago', methods=['GET', 'POST'])
 def medioPago():
+    global evento_Id
     if request.method == 'POST':
         data = request.form
-        
         checkbox_card = 'Tarjeta' if 'checkboxCard' in data else None
         checkbox_bank = 'Banco' if 'checkboxBank' in data else None
+
         medio_pago_id = None
         if checkbox_card == 'Tarjeta':
             medio_pago_id = 2 
@@ -172,12 +220,12 @@ def medioPago():
             )
         """
         cursor9.execute(
-            sql, 
-            idP = data['codigoPago'],
-            fechaP = data['datePago'],
-            montoP = data['montoPago'],
-            descriptionP = data['descripcionPago'],
-            idMedioPago = medio_pago_id
+        sql, 
+        idP = data['codigoPago'],
+        fechaP = data['datePago'],
+        montoP = data['montoPago'],
+        descriptionP = data['descripcionPago'],
+        idMedioPago = medio_pago_id
         )
         connection.commit()
         cursor9.close()
@@ -272,49 +320,36 @@ def aditionals():
         return redirect(url_for('medioPago'))
     return render_template('index6.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/inscripcionEvent', methods=['GET', 'POST'])
+def inscripcionEvent():
+    global usuario_Nombre
     if request.method == 'POST':
         data = request.form
-        cursor11 = connection.cursor()
-        sql = "SELECT * FROM CAY_USUARIO"
-        cursor11.execute(sql)
-        users = cursor11.fetchall()
-        print(users)
-        for user in users:
-            user = list(user)
-            if user[1] == data['usuario'] and user[3] == data['contra']:
-                cursor11.close()
-                return redirect (url_for('home'))
-        
-        cursor11.close()
-        return redirect (url_for('signup'))
-        
-    return render_template('login.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if request.method == 'POST':
-        data = request.form
-        rol_id = 1
-        cursor12 = connection.cursor()
-        sql = """
-            INSERT INTO CAY_USUARIO(
-                CORREO, NOMBRE_USUARIO, CONTRASENIA, ID_ROL
-            ) VALUES(:correoU, :nombreU, :contraU, :idRol)
+        cursor13 = connection.cursor()
+        sql = "SELECT * FROM CAY_USUARIO WHERE NOMBRE_USUARIO = :usuarioN"
+        cursor13.execute(sql, usuarioN = usuario_Nombre)
+        user = cursor13.fetchone()
+        cursor13.close()
+        print(user)
+
+        cursor14 = connection.cursor()
+        sql2 = """
+            INSERT INTO CAY_INSCRIPCION(
+                FECHA_INSCRIPCION, ID_USUARIO
+            ) VALUES(TO_DATE(:fechaIns, 'YYYY-MM-DD'), :idU)
         """
-        cursor12.execute(
-            sql,
-            correoU = data['correo'],
-            nombreU = data['usuario'],
-            contraU = data['contra'],
-            idRol = rol_id
-            )
+        cursor14.execute(
+            sql2,
+            fechaIns = data['dateInscripcion'],
+            idU = user[0]
+        )
         connection.commit()
-        cursor12.close()
-        return redirect(url_for('login'))
-    return render_template('signup.html')
+        cursor14.close()
+        return redirect(url_for('home'))
+
+    return render_template('index7.html')
 
 if __name__ == '__main__':
     app.config.from_object(config['development'])
-    app.run()
+    app.run(debug=True)

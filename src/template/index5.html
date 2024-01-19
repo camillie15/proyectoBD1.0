@@ -48,25 +48,32 @@
                 </div>
                 <div class="containerColumn">
                     <div class="containerTextBox">
-                        <div id="headerEvent" class="containerWithoutBorder">
-                            <input value="Codigo">
-                            <input value="Nombre del evento">
-                            <input value="Descripcion">
-                            <input value="Fecha">
+                        <div id="labels" class="containerWithoutBorder">
+                            <label class="labelId">Codigo</label>
+                            <label class="labelLa">Nombre del evento</label>
+                            <label class="labelLa">Descripcion</label>
+                            <label class="labelId">Fecha</label>
+                            <label>
+                                <img class="app-icon" src=" {{ url_for('static', filename='img/anything.png') }} " height="30" width="50">
+                            </label>
                         </div>
-                        <div class="containerWithoutBorder">
+                        <div id="containerLabel" class="containerWithoutBorderEventsDelete containerRow">
                             {%  for evento in eventos %}
-                                <input value="{{evento[0]}}">
-                                <input value="{{evento[1]}}">
-                                <input value="{{evento[2]}}">
-                                <label>
-                                    <time datetime="{{ evento[7].strftime('%Y-%m-%d') }}">{{ evento[7].strftime('%Y-%m-%d') }}</time>
-                                </label>
-                                <form action="{{ url_for('deleteEventId', idEvento=evento[0]) }}" method="post">
-                                    <button id="deleteId" name="deleteId">
-                                        <img class="app-icon" src=" {{ url_for('static', filename='img/delete.png') }} " height="25">
-                                    </button>
-                                </form>
+                                <div id="labelsEvent" class="containerWithoutBorder">
+                                    <label class="labelId">{{evento[0]}}</label>
+                                    <label class="labelLa">{{evento[1]}}</label>
+                                    <label class="labelLa">{{evento[2]}}</label>
+                                    <label class="labelId">
+                                        <time datetime="{{ evento[7].strftime('%Y-%m-%d') }}">{{ evento[7].strftime('%Y-%m-%d') }}</time>
+                                    </label>
+                                    <label >
+                                        <form action="{{ url_for('deleteEventId', idEvento=evento[0]) }}" method="post">
+                                            <button id="deleteId" name="deleteId">
+                                                <img class="app-icon" src=" {{ url_for('static', filename='img/delete.png') }} " height="25">
+                                            </button>
+                                        </form>
+                                    </label>
+                                </div>
                             {% endfor %}
                         </div>
                     </div>

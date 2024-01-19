@@ -18,6 +18,9 @@
             <div class="containerLogin">
                 <img class="app-icon marginImg" src=" {{ url_for('static', filename='img/cal.png') }} " height="400">
                 <form action="/signup" method="POST">
+                    <div style="align-self: center;" >
+                        <label class="wrap-label" style="color: crimson;"><h3>Usuario y contraseña no validos, únete a nosotros</h3></label>
+                    </div>
                     <div class="containerColumn textNBorder">
                         <div class="containerCenter">
                                 <img class="app-icon opacity marginImg" src=" {{ url_for('static', filename='img/logologin.png') }} " height="100">
